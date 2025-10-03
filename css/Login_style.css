@@ -1,0 +1,9 @@
+.forpass{
+    text-decoration: none;
+    color: grey;
+}
+
+.forpass:hover{
+    color: #418934;
+    transition: 1s;
+}

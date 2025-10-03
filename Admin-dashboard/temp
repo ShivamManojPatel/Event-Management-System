@@ -1,0 +1,33 @@
+$ano = str_split($_POST['cno']);
+                if(strlen($_POST['cno']) == 10 && is_numeric($_POST['cno']) && (($ano[0] == 6) || ($ano[0] == 7) || ($ano[0] == 8) || ($ano[0] == 9)))
+                {
+                    $fname = $_POST['fname'];
+                    $lname = $_POST['lname'];
+                    $cno = $_POST['cno'];
+
+                    $uquery = "update admin_registration set First_Name='$fname', Last_Name='$lname', Contact_No='$cno' where A_id='$id'";
+                    $uresult = mysqli_query($conn, $uquery);
+
+                    if($uresult)
+                    {
+                        header('location: dashboard-admin-Profile.php');
+                    }
+                    else
+                    {
+                        echo "<div style='padding: 5px;
+                        background-color: #ffffb3;
+                        color: black;
+                        height: 25px;'>
+                            <center>something went wrong please try again later</center>
+                        </div>";
+                    }
+                }
+                else
+                {
+                    echo "<div style='padding: 5px;
+                        background-color: #ffffb3;
+                        color: black;
+                        height: 25px;'>
+                            <center>please enter valid contact no</center>
+                        </div>";
+                }
